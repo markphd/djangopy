@@ -1,5 +1,15 @@
+from django.conf import settings
 from django.http import HttpResponse
+from django.shortcuts import render
+
+from djangopy.settings import STATICFILES_DIRS
+# from djangopy.settings import STATIC_ROOT
 
 
 def index(request):
-    return HttpResponse("Made with Python. Hosted in Railway")
+    return render(request, 'index.html')
+
+static_files = STATICFILES_DIRS
+
+def views(request):
+    return HttpResponse(static_files)
